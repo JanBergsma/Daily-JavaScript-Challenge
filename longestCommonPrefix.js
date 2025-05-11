@@ -6,18 +6,15 @@ function longestCommonPrefix(ss) {
     ss ? ss[0].length : 0
   )
 
-  let prefix = ''
   for (let i = 0; i < minLength; ++i) {
-    const ch = ss[0][i]
     for (const s of ss) {
-      if (s[i] !== ch) {
-        return prefix
+      if (s[i] !== ss[0][i]) {
+        return ss[0].slice(0, i)
       }
     }
-    prefix += ch
   }
 
-  return prefix
+  return ss[0].slice(0, minLength)
 }
 
 describe('getUniqueCharacters', () => {
