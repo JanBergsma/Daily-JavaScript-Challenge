@@ -1,20 +1,32 @@
 import { describe, expect, test } from 'vitest'
-
+/**
+ *
+ * Find the Longest Common Prefix
+ * Given an array of strings, find the longest common prefix string a
+ * mongst them. If there is no common prefix, return an empty string.
+ *
+ * Example:
+ * Input: ["flower","flow","flight"]
+ * Output: "fl"
+ *
+ * @param {*} ss
+ * @returns
+ */
 function longestCommonPrefix(ss) {
-  const minLength = ss.reduce(
-    (acc, val) => Math.min(acc, val.length),
-    ss ? ss[0].length : 0
-  )
+  if (!ss) {
+    return ''
+  }
+  let maxPrefix = ss[0].slice(0)
 
-  for (let i = 0; i < minLength; ++i) {
-    for (const s of ss) {
-      if (s[i] !== ss[0][i]) {
-        return ss[0].slice(0, i)
-      }
+  for (const s of ss.slice(1, ss.size)) {
+    let endIndex = Math.min(s.length, maxPrefix.length)
+    while (endIndex >= 0 && !s.startsWith(maxPrefix)) {
+      maxPrefix = maxPrefix.slice(0, endIndex)
+      endIndex--
     }
   }
 
-  return ss[0].slice(0, minLength)
+  return maxPrefix
 }
 
 describe('getUniqueCharacters', () => {
