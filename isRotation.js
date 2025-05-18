@@ -31,7 +31,7 @@ function isRotation(s1, s2) {
 
   return false
 }
-
+// test
 describe('isRotation', () => {
   test('abcd, acbd should return false', () => {
     expect(isRotation('abcd', 'acbd')).toBe(false)
