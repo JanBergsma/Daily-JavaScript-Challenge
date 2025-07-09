@@ -16,7 +16,7 @@ import { describe, expect, test } from 'vitest'
 function totalTravelDistance(travelLog) {
   return travelLog.reduce((acc, entry) => acc + entry['distance'], 0.0)
 }
-// testMap<String, Object>
+
 describe('totalTravelDistance', () => {
   test('a[{"distance": 5}, {"distance": 10}, {"distance": 2.5}]should return 17.5', () => {
     expect(
